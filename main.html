@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Convert Base64 String to PDF</title>
+</head>
+<body>
+<h1>Convert Base64 String to PDF</h1>
+<p>Enter the base64 encoded PDF string below:</p>
+<script>
+
+function base64ToPdf(base64String) {
+  const byteArray = new Uint8Array(atob(base64String).split('').map(char => char.charCodeAt(0)));
+  const pdfBlob = new Blob([byteArray], { type: 'application/pdf' });
+  const pdfUrl = URL.createObjectURL(pdfBlob);
+  const iframe = document.createElement('iframe');
+  iframe.src = pdfUrl;
+  document.body.appendChild(iframe);
+}
+const base64String = 'JVBERi0xLjQKJfbk/N8KMSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwovVmVyc2lvbiAvMS40Ci9QYWdlcyAyIDAgUgo+PgplbmRvYmoKMiAwIG9iago8PAovVHlwZSAvUGFnZXMKL0tpZHMgWzMgMCBSXQovQ291bnQgMQo+PgplbmRvYmoKMyAwIG9iago8PAovVHlwZSAvUGFnZQovTWVkaWFCb3ggWzAuMCAwLjAgNjEyLjAgNzkyLjBdCi9QYXJlbnQgMiAwIFIKL0NvbnRlbnRzIDQgMCBSCi9SZXNvdXJjZXMgNSAwIFIKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0ZpbHRlciAvRmxhdGVEZWNvZGUKL0xlbmd0aCAxMTMKPj4Kc3RyZWFtDQp4nDWLwQrCQAxE7/mKnL00u00mFaTQate75A/WCnot+P3mIgPD4zGzBg2tcDGOFw23/fvu++O+cj+osGSOTlXYTTiedNEJhmumLWKO5jVZk0VVsQjGNIbimp3ezUecscH/G635mmaOD8WJtqAfnaoc5w0KZW5kc3RyZWFtCmVuZG9iago1IDAgb2JqCjw8Ci9Gb250IDYgMCBSCj4+CmVuZG9iago2IDAgb2JqCjw8Ci9GMSA3IDAgUgo+PgplbmRvYmoKNyAwIG9iago8PAovVHlwZSAvRm9udAovU3VidHlwZSAvVHlwZTEKL0Jhc2VGb250IC9Db3VyaWVyCi9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nCj4+CmVuZG9iagp4cmVmCjAgOAowMDAwMDAwMDAwIDY1NTM1IGYNCjAwMDAwMDAwMTUgMDAwMDAgbg0KMDAwMDAwMDA3OCAwMDAwMCBuDQowMDAwMDAwMTM1IDAwMDAwIG4NCjAwMDAwMDAyNDcgMDAwMDAgbg0KMDAwMDAwMDQzNCAwMDAwMCBuDQowMDAwMDAwNDY3IDAwMDAwIG4NCjAwMDAwMDA0OTggMDAwMDAgbg0KdHJhaWxlcgo8PAovUm9vdCAxIDAgUgovSUQgWzxDMTI1QjIwNUFEQzBGQUVCODkxOENCM0RGQkQzQjQ2Nz4gPEMxMjVCMjA1QURDMEZBRUI4OTE4Q0IzREZCRDNCNDY3Pl0KL1NpemUgOAo+PgpzdGFydHhyZWYKNTkzCiUlRU9GCg==';
+base64ToPdf(base64String);
+
+</script>
+</body>
+</html>
