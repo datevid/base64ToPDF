@@ -1,4 +1,4 @@
-# base64ToPDF
+# base64ToPDFInHtml
 Convertidor de base64 a PDF usando html y javascript
 
 
